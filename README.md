@@ -17,9 +17,9 @@ Get this dependency with the lates version
 
 To best explain the usage of a valid domain primitive I'll create a little user story.
 
-As a librarian
-I want books to all have a book-id in the BookId* format
-So that I know that I never get any invalid book-id's in my library
+- As a librarian
+- I want books to all have a book-id in the BookId* format
+- So that I know that I never get any invalid book-id's in my library
 
 *BookId format: {10-digit-number}:{5-letter-code}
 
