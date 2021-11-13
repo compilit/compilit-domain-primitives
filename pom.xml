@@ -6,7 +6,7 @@
 
   <artifactId>solidcoding-domain-primitives</artifactId>
   <groupId>org.solidcoding</groupId>
-  <version>1.0.1</version>
+  <version>1.0.0.RELEASE</version>
 
   <dependencies>
     <dependency>
