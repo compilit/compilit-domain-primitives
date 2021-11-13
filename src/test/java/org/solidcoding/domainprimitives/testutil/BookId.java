@@ -1,11 +1,11 @@
-package world.solidcoding.domainprimitives.testutil;
+package org.solidcoding.domainprimitives.testutil;
 
-import world.solidcoding.domainprimitives.DomainPrimitive;
+import org.solidcoding.domainprimitives.DomainPrimitive;
 
 public class BookId extends DomainPrimitive<String> {
 
   public BookId(String value) {
-    super(value);
+    super(value, BookId.class.getSimpleName());
   }
 
   @Override

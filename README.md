@@ -5,12 +5,11 @@ Something like this should be the heart of every domain entity out there.
 
 # Installation
 
-Get this dependency with the lates version
+Get this dependency with the latest version
 ```
     <dependency>
       <artifactId>solidcoding-domain-primitives</artifactId>
-      <groupId>world.solidcoding</groupId>
-      <version>1.0.0.RELEASE</version>
+      <groupId>org.solidcoding</groupId>
     </dependency>
 ```
 # Usage
@@ -56,7 +55,7 @@ And now I'll implement this domain primitive:
 public class BookId extends DomainPrimitive<String> {
 
   public BookId(String value) {
-    super(value);
+    super(value, BookId.class.getSimpleName());
   }
 
   @Override

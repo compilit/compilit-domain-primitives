@@ -5,8 +5,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>solidcoding-domain-primitives</artifactId>
-  <groupId>world.solidcoding</groupId>
-  <version>1.0.0.RELEASE</version>
+  <groupId>org.solidcoding</groupId>
+  <version>1.0.1</version>
 
   <dependencies>
     <dependency>
@@ -45,7 +45,7 @@
     <repository>
       <id>github</id>
       <name>GitHub Harvey the Rabbit Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/harveytherabbit/solidcoding-results</url>
+      <url>https://maven.pkg.github.com/harveytherabbit/domain-primitives</url>
     </repository>
   </distributionManagement>
 

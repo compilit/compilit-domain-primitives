@@ -1,4 +1,4 @@
-package world.solidcoding.domainprimitives;
+package org.solidcoding.domainprimitives;
 
 final class ExceptionMessage {
 

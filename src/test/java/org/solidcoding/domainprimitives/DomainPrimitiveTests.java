@@ -1,8 +1,8 @@
-package world.solidcoding.domainprimitives;
+package org.solidcoding.domainprimitives;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static world.solidcoding.domainprimitives.testutil.TestValue.TEST_CONTENT;
+import static org.solidcoding.domainprimitives.testutil.TestValue.TEST_CONTENT;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -30,7 +30,7 @@ public final class DomainPrimitiveTests {
   }
   @Test
   void getName_ShouldReturnNameOfClass() {
-    var domainPrimitive = new DomainPrimitive(TEST_CONTENT) {
+    var domainPrimitive = new DomainPrimitive(TEST_CONTENT, DomainPrimitive.class) {
       @Override
       protected boolean isValid(Object value) {
         return true;
@@ -41,15 +41,15 @@ public final class DomainPrimitiveTests {
 
   @Test
   void throwDefaultDomainPrimitiveException_ExceptionShouldHaveCorrectContent() {
-    Assertions.assertThatThrownBy(() -> new TestExceptionDomainPrimitive<>(TEST_CONTENT))
+    Assertions.assertThatThrownBy(() -> new TestExceptionDomainPrimitive<>(TestExceptionDomainPrimitive.class.getSimpleName()))
               .isInstanceOf(DomainPrimitiveException.class)
-              .hasMessageContaining("TestExceptionDomainPrimitive");
+              .hasMessageContaining(TestExceptionDomainPrimitive.class.getSimpleName());
   }
 
   private static class TestDomainPrimitive<T> extends DomainPrimitive<T> {
 
     public TestDomainPrimitive(T value) {
-      super(value);
+      super(value, TestDomainPrimitive.class);
     }
 
     @Override
@@ -61,7 +61,7 @@ public final class DomainPrimitiveTests {
   private static class TestExceptionDomainPrimitive<T> extends DomainPrimitive<T> {
 
     public TestExceptionDomainPrimitive(T value) {
-      super(value);
+      super(value, TestDomainPrimitive.class);
     }
 
     @Override

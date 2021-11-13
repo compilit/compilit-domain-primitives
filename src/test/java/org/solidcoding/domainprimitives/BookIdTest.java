@@ -1,9 +1,9 @@
-package world.solidcoding.domainprimitives;
+package org.solidcoding.domainprimitives;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import world.solidcoding.domainprimitives.testutil.BookId;
+import org.solidcoding.domainprimitives.testutil.BookId;
 
 public class BookIdTest {
 
