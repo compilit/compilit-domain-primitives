@@ -13,8 +13,8 @@ public class BookIdTest {
       "9999999999:defga",
       "0000000000:pihsa"
   })
-  void ctor_validBookId_shouldNotThrowException() {
-    Assertions.assertThatNoException().isThrownBy(() -> new BookId("1234567890:abcde"));
+  void ctor_validBookId_shouldNotThrowException(String value) {
+    Assertions.assertThatNoException().isThrownBy(() -> new BookId(value));
   }
 
   @ParameterizedTest
@@ -23,8 +23,8 @@ public class BookIdTest {
       "someweirdId:123455",
       ""
   })
-  void ctor_invalidBookId_shouldThrowException() {
-    Assertions.assertThatThrownBy(() -> new BookId("someweirdId:123455"))
+  void ctor_invalidBookId_shouldThrowException(String value) {
+    Assertions.assertThatThrownBy(() -> new BookId(value))
               .isInstanceOf(DomainPrimitiveException.class);
   }
 

@@ -1,5 +1,6 @@
 package org.solidcoding.domainprimitives.testutil;
 
+import java.util.Objects;
 import org.solidcoding.domainprimitives.DomainPrimitive;
 
 public class BookId extends DomainPrimitive<String> {
@@ -10,6 +11,8 @@ public class BookId extends DomainPrimitive<String> {
 
   @Override
   protected boolean isValid(String value) {
+    if (Objects.isNull(value) || value.isBlank())
+      return false;
     var substrings = value.split(":");
     var digits = substrings[0];
     var letters = substrings[1];
