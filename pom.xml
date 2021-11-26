@@ -15,7 +15,7 @@
 
   <name>Solidcoding domain primitives</name>
   <description>A small package that takes away some boiler plate code when creating your own domain primitives.</description>
-  <url>https://github.com/solidcoding-org/solidcoding-validation</url>
+  <url>https://github.com/solidcoding-org/solidcoding-domain-primitives</url>
 
   <dependencies>
     <dependency>
