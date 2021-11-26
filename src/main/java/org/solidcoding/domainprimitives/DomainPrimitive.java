@@ -3,6 +3,7 @@ package org.solidcoding.domainprimitives;
 import java.util.Objects;
 
 public abstract class DomainPrimitive<T> {
+
   private final T value;
   private final String name;
 
@@ -13,7 +14,7 @@ public abstract class DomainPrimitive<T> {
   protected DomainPrimitive(T value, Class<?> extendingClass) {
     this.name = extendingClass.getSimpleName();
     if (!isValid(value)) {
-      throw new DomainPrimitiveException(ExceptionMessage.invalidDomainPrimitive(getName(), value));
+      throw new DomainPrimitiveException(getName(), value);
     }
     this.value = value;
   }
@@ -25,7 +26,7 @@ public abstract class DomainPrimitive<T> {
   protected DomainPrimitive(T value, String name) {
     this.name = name;
     if (!isValid(value)) {
-      throw new DomainPrimitiveException(ExceptionMessage.invalidDomainPrimitive(getName(), value));
+      throw new DomainPrimitiveException(getName(), value);
     }
     this.value = value;
   }

@@ -6,30 +6,50 @@ import static org.solidcoding.domainprimitives.testutil.TestValue.TEST_CONTENT;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.solidcoding.domainprimitives.testutil.SomePositiveNumber;
 
 public final class DomainPrimitiveTests {
 
   @Test
-  void equals_ShouldReturnTrue() {
+  void equals_shouldReturnTrue() {
     var x = new TestDomainPrimitive<>(TEST_CONTENT);
     var y = new TestDomainPrimitive<>(TEST_CONTENT);
     assertEquals(x, y);
   }
 
   @Test
-  void equals_UnequalObjects_ShouldReturnTrue() {
+  void equals_notEqualObjects_shouldReturnTrue() {
     var x = new TestDomainPrimitive<>(TEST_CONTENT);
     var y = new TestDomainPrimitive<>("something else");
     assertNotEquals(x, y);
   }
 
   @Test
-  void getValue_ShouldReturnDomainPrimitiveValue() {
+  void equals_sameIntAndInteger_shouldReturnTrue() {
+    int primitive = 1;
+    Integer object = 1;
+
+    var actualDomainPrimitive = new SomePositiveNumber(object);
+    var actualOtherDomainPrimitive = new SomePositiveNumber(primitive);
+
+    Assertions.assertThat(primitive).isEqualTo(object);
+
+    Assertions.assertThat(actualDomainPrimitive).isEqualTo(primitive);
+    Assertions.assertThat(actualDomainPrimitive).isEqualTo(object);
+
+    Assertions.assertThat(actualOtherDomainPrimitive).isEqualTo(primitive);
+    Assertions.assertThat(actualOtherDomainPrimitive).isEqualTo(object);
+
+    Assertions.assertThat(actualDomainPrimitive).isEqualTo(actualOtherDomainPrimitive);
+  }
+
+  @Test
+  void getValue_shouldReturnDomainPrimitiveValue() {
     var domainPrimitive = new TestDomainPrimitive<>(TEST_CONTENT);
     assertEquals(domainPrimitive.getValue(), TEST_CONTENT);
   }
   @Test
-  void getName_ShouldReturnNameOfClass() {
+  void getName_shouldReturnNameOfClass() {
     var domainPrimitive = new DomainPrimitive(TEST_CONTENT, DomainPrimitive.class) {
       @Override
       protected boolean isValid(Object value) {
@@ -40,7 +60,7 @@ public final class DomainPrimitiveTests {
   }
 
   @Test
-  void throwDefaultDomainPrimitiveException_ExceptionShouldHaveCorrectContent() {
+  void ctor_invalidValue_exceptionShouldHaveCorrectContent() {
     Assertions.assertThatThrownBy(() -> new TestExceptionDomainPrimitive<>(TestExceptionDomainPrimitive.class.getSimpleName()))
               .isInstanceOf(DomainPrimitiveException.class)
               .hasMessageContaining(TestExceptionDomainPrimitive.class.getSimpleName());
@@ -69,4 +89,5 @@ public final class DomainPrimitiveTests {
       return false;
     }
   }
+
 }

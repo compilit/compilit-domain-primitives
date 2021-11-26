@@ -23,7 +23,7 @@ To best explain the usage of a valid domain primitive I'll create a little user 
 *BookId format: {10-digit-number}:{5-letter-code}
 
 Let's first write some tests:
-```
+```java
 public class BookIdTest {
 
   @ParameterizedTest
@@ -51,7 +51,7 @@ public class BookIdTest {
 ```
 
 And now I'll implement this domain primitive:
-```
+```java
 public class BookId extends DomainPrimitive<String> {
 
   public BookId(String value) {
@@ -70,6 +70,34 @@ public class BookId extends DomainPrimitive<String> {
         && digits.chars().allMatch(Character::isDigit)
         && letters.chars().allMatch(Character::isAlphabetic);
   }
+
+}
+```
+### Tip
+The Solidcoding-validation package works really nice to define and validate the business rules related to domain primitives. Here is a little example based on the previous one:
+
+```java
+import javax.xml.validation.Validator;
+import java.util.function.Predicate;
+
+public class BookId extends DomainPrimitive<String> {
+
+    private final Rule<String> bookIdBaseRule = DefineThat.itShould(beAStringWithLength(16).containing(":"));
+    private final Rule<String> bookIdFirstPartRule = DefineThat.itShould(beNumeric(10));
+    private final Rule<String> bookIdSecondPartRule = DefineThat.itShould(beAlphabetic(5));
+
+    public BookId(String value) {
+        super(value, BookId.class.getSimpleName());
+    }
+
+    @Override
+    protected boolean isValid(String value) {
+        return Validator.makeSure(value)
+                .compliesWith(bookIdBaseRule)
+                .compliesWith(bookIdFirstPartRule)
+                .compliesWith(bookIdSecondPartRule)
+                .validate();
+    }
 
 }
 ```
