@@ -4,9 +4,18 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <parent>
+    <artifactId>solidcoding-parent</artifactId>
+    <groupId>org.solidcoding</groupId>
+    <version>1.0.2</version>
+  </parent>
+
   <artifactId>solidcoding-domain-primitives</artifactId>
-  <groupId>org.solidcoding</groupId>
   <version>1.0.1</version>
+
+  <name>Solidcoding domain primitives</name>
+  <description>A small package that takes away some boiler plate code when creating your own domain primitives.</description>
+  <url>https://github.com/solidcoding-org/solidcoding-validation</url>
 
   <dependencies>
     <dependency>
@@ -28,24 +37,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
-  <properties>
-    <jdk.version>11</jdk.version>
-    <assertj.version>3.21.0</assertj.version>
-    <junit.jupiter.version>5.8.1</junit.jupiter.version>
-    <mockito.version>4.0.0</mockito.version>
-    <maven.compiler.source>${jdk.version}</maven.compiler.source>
-    <maven.compiler.target>${jdk.version}</maven.compiler.target>
-    <maven.compiler.version>3.8.1</maven.compiler.version>
-    <maven.surefire.plugin.version>3.0.0-M3</maven.surefire.plugin.version>
-  </properties>
-
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub Harvey the Rabbit Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/harveytherabbit/solidcoding-domain-primitives</url>
-    </repository>
-  </distributionManagement>
 
 </project>
