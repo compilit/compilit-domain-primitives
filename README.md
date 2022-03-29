@@ -1,4 +1,4 @@
-# solidcoding-domain-primitives
+# compilit-domain-primitives
 A simple package containing a base class that enables you to create domain primitives.
 It enables you to avoid the use of possibly unvalidated primitive values in your domain entities. Essentially a domain primitive cannot exist if its related business logic fails.
 Something like this should be the heart of every domain entity out there.
@@ -6,10 +6,10 @@ Something like this should be the heart of every domain entity out there.
 # Installation
 
 Get this dependency with the latest version
-```
+```xml
     <dependency>
-      <artifactId>solidcoding-domain-primitives</artifactId>
-      <groupId>org.solidcoding</groupId>
+      <artifactId>compilit-domain-primitives</artifactId>
+      <groupId>com.compilit</groupId>
     </dependency>
 ```
 # Usage
@@ -74,7 +74,7 @@ public class BookId extends DomainPrimitive<String> {
 }
 ```
 ### Tip
-The Solidcoding-validation package works really nice to define and validate the business rules related to domain primitives. Here is a little example based on the previous one:
+The compilit-validation package works really nice to define and validate the business rules related to domain primitives. Here is a little example based on the previous one:
 
 ```java
 import javax.xml.validation.Validator;

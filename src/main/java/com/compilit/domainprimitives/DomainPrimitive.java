@@ -1,4 +1,4 @@
-package org.solidcoding.domainprimitives;
+package com.compilit.domainprimitives;
 
 import java.util.Objects;
 

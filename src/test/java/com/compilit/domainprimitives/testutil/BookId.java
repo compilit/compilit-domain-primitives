@@ -1,7 +1,7 @@
-package org.solidcoding.domainprimitives.testutil;
+package com.compilit.domainprimitives.testutil;
 
 import java.util.Objects;
-import org.solidcoding.domainprimitives.DomainPrimitive;
+import com.compilit.domainprimitives.DomainPrimitive;
 
 public class BookId extends DomainPrimitive<String> {
 

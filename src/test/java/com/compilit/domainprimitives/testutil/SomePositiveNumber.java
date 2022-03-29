@@ -1,6 +1,6 @@
-package org.solidcoding.domainprimitives.testutil;
+package com.compilit.domainprimitives.testutil;
 
-import org.solidcoding.domainprimitives.DomainPrimitive;
+import com.compilit.domainprimitives.DomainPrimitive;
 
 public class SomePositiveNumber extends DomainPrimitive<Integer> {
 

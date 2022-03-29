@@ -5,17 +5,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <artifactId>solidcoding-parent</artifactId>
-    <groupId>org.solidcoding</groupId>
+    <artifactId>compilit-parent</artifactId>
+    <groupId>com.compilit</groupId>
     <version>1.0.3</version>
   </parent>
 
-  <artifactId>solidcoding-domain-primitives</artifactId>
+  <artifactId>compilit-domain-primitives</artifactId>
   <version>1.0.0</version>
 
-  <name>Solidcoding domain primitives</name>
+  <name>Compilit domain primitives</name>
   <description>A small package that takes away some boiler plate code when creating your own domain primitives.</description>
-  <url>https://github.com/solidcoding-org/solidcoding-domain-primitives</url>
+  <url>https://github.com/compilit-org/compilit-domain-primitives</url>
 
   <dependencies>
     <dependency>

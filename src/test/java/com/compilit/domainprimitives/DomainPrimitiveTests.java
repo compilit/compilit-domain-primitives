@@ -1,25 +1,25 @@
-package org.solidcoding.domainprimitives;
+package com.compilit.domainprimitives;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.solidcoding.domainprimitives.testutil.TestValue.TEST_CONTENT;
 
+import com.compilit.domainprimitives.testutil.SomePositiveNumber;
+import com.compilit.domainprimitives.testutil.TestValue;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.solidcoding.domainprimitives.testutil.SomePositiveNumber;
 
 public final class DomainPrimitiveTests {
 
   @Test
   void equals_shouldReturnTrue() {
-    var x = new TestDomainPrimitive<>(TEST_CONTENT);
-    var y = new TestDomainPrimitive<>(TEST_CONTENT);
+    var x = new TestDomainPrimitive<>(TestValue.TEST_CONTENT);
+    var y = new TestDomainPrimitive<>(TestValue.TEST_CONTENT);
     assertEquals(x, y);
   }
 
   @Test
   void equals_notEqualObjects_shouldReturnTrue() {
-    var x = new TestDomainPrimitive<>(TEST_CONTENT);
+    var x = new TestDomainPrimitive<>(TestValue.TEST_CONTENT);
     var y = new TestDomainPrimitive<>("something else");
     assertNotEquals(x, y);
   }
@@ -45,12 +45,12 @@ public final class DomainPrimitiveTests {
 
   @Test
   void getValue_shouldReturnDomainPrimitiveValue() {
-    var domainPrimitive = new TestDomainPrimitive<>(TEST_CONTENT);
-    assertEquals(domainPrimitive.getValue(), TEST_CONTENT);
+    var domainPrimitive = new TestDomainPrimitive<>(TestValue.TEST_CONTENT);
+    assertEquals(domainPrimitive.getValue(), TestValue.TEST_CONTENT);
   }
   @Test
   void getName_shouldReturnNameOfClass() {
-    var domainPrimitive = new DomainPrimitive(TEST_CONTENT, DomainPrimitive.class) {
+    var domainPrimitive = new DomainPrimitive(TestValue.TEST_CONTENT, DomainPrimitive.class) {
       @Override
       protected boolean isValid(Object value) {
         return true;
