@@ -77,14 +77,11 @@ public class BookId extends DomainPrimitive<String> {
 The compilit-validation package works really nice to define and validate the business rules related to domain primitives. Here is a little example based on the previous one:
 
 ```java
-import javax.xml.validation.Validator;
-import java.util.function.Predicate;
-
 public class BookId extends DomainPrimitive<String> {
 
-    private final Rule<String> bookIdBaseRule = DefineThat.itShould(beAStringWithLength(16).containing(":"));
-    private final Rule<String> bookIdFirstPartRule = DefineThat.itShould(beNumeric(10));
-    private final Rule<String> bookIdSecondPartRule = DefineThat.itShould(beAlphabetic(5));
+    private final Rule<String> bookIdBaseRule = defineThatIt(isAStringWithLength(16).containing(":"));
+    private final Rule<String> bookIdFirstPartRule = defineThatIt(isNumeric(10));
+    private final Rule<String> bookIdSecondPartRule = defineThatIt(isAlphabetic(5));
 
     public BookId(String value) {
         super(value, BookId.class.getSimpleName());
@@ -92,11 +89,11 @@ public class BookId extends DomainPrimitive<String> {
 
     @Override
     protected boolean isValid(String value) {
-        return Validator.makeSure(value)
+        return verifyThat(value)
                 .compliesWith(bookIdBaseRule)
                 .compliesWith(bookIdFirstPartRule)
                 .compliesWith(bookIdSecondPartRule)
-                .validate();
+                .orElseThrow(InValidBookIdException::new);
     }
 
 }
